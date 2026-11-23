@@ -1,0 +1,29 @@
+ROZGA - kod zrodlowy pluginu Paper 26.1.2, Java 25.
+Nie jest to skompilowany JAR. Projekt nie byl tutaj kompilowany ani testowany.
+
+Dzialanie: trafienie gracza patykiem Rozga blokuje rozpoczynanie lotu elytra
+na 7 sekund i przerywa aktualny lot. Elytra pozostaje w ekwipunku.
+Nakladany jest takze cooldown na elytre (wizualizacja zalezy od klienta).
+Rozga nie blokuje tarczy: porownanie do tarczy dotyczy mechanizmu cooldownu.
+Trafienie musi zadac obrazenia i nie byc anulowane. Testuj w Survival przy wlaczonym PvP.
+Nie dodano ochrony przed upadkiem. Patyk sie nie zuzywa.
+Bez cooldownu Rozgi domyslnie: kolejne trafienia odswiezaja blokade do 7 sekund,
+a nie dodaja kolejnych 7 sekund. W config.yml mozna ustawic np. cooldown-seconds: 30.
+Czas liczony w tickach serwera; przy lagach 140 tickow moze trwac dluzej niz 7 sekund.
+Zmiana elytry nie omija serwerowej blokady. Ponowne logowanie w czasie blokady
+nie usuwa jej. Restart/wylaczenie pluginu zeruje stan blokad i odnowienia.
+Inne pluginy ingerujace w lot moga kolidowac - przetestuj na swoim serwerze.
+
+BUDOWANIE: mvn clean package (JDK 25 i Maven).
+Wynik: target/Rozga-1.0.0.jar
+
+GITHUB: Utworz NOWE repo rozga, nie nadpisuj repo lewitacja.
+Wgraj zawartosc folderu Rozga: src, pom.xml, CZYTAJ.txt.
+Dodaj plik .github/workflows/build.yml i wklej do niego zawartosc BUDOWANIE.txt.
+Nie wklejaj slowa yaml ani znakow ```.
+Actions -> najnowsze udane uruchomienie -> Artifacts -> Rozga-plugin.
+Rozpakuj artefakt i wgraj JAR do plugins, obok Lewitacji. Zrestartuj serwer.
+
+KOMENDY: /rozga, /rozga Nick, /rozga reload (OP lub rozga.admin).
+Konsola: rozga TwojNick (bez /).
+Uzywanie przedmiotu nie wymaga uprawnien.

@@ -1,0 +1,12 @@
+name: Rozga
+version: 1.0.0
+main: pl.skypvp.rozga.Rozga
+api-version: '26.1.2'
+commands:
+  rozga:
+    description: Daje customowa Rozge.
+    usage: /rozga [nick|reload]
+    permission: rozga.admin
+permissions:
+  rozga.admin:
+    default: op
